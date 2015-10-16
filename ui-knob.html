@@ -38,7 +38,8 @@
       squareIt: function() {
       this.victim = this.$$('.round');
       console.log(this.victim.offsetWidth); // this works fine
-      this.victim.style.height = this.victim.offsetWidth;
+      this.victim.removeAttribute('style');
+      this.victim.style.height = this.victim.offsetWidth + 'px';
     },
     created: function() {
       console.log('Squaring for ', this, 'enabled!');
