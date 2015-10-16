@@ -1,12 +1,10 @@
-<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html"><!-- Calling common styles -->
-<link rel="import" href="../bower_components/iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="bower_components/iron-resizable-behavior/iron-resizable-behavior.html">
 
-<link rel="import" href="square-behavior.html">
 <link rel="import" href="twist-behavior.html">
 <dom-module id="ui-knob">
   <template>
-    <style include="twist-behavior"></style>
     <style include="shared-styles">
       .inset {
         padding: 10%;
@@ -50,8 +48,8 @@
       this.squareIt();
     },
     _resizeHandler: function (e) {
-                console.log(e);
-            }
-    });
+      console.log(e);
+    }
+  });
   </script>
 </dom-module>
