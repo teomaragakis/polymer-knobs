@@ -1,0 +1,116 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html"><!-- Calling common styles -->
+<link rel="import" href="square-behavior.html">
+<dom-module id="ui-switch">
+  <template>
+    <style include="shared-styles">
+      .inset {
+        padding: 20%;
+      }
+
+      input {
+        /* First, we make it as wide as the container */
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /* Then, we put it on top of everything else */
+        z-index: 100;
+        /* Last, we make it invisible */
+        opacity: 0;
+        /* This one is just for ergonomy */
+        cursor: pointer;
+      }
+      input:checked ~ label { /* Button */
+        color: #9abb82; /*green?*/
+        box-shadow:
+          inset 0 2px 3px rgba(255,255,255,0.13),
+          0 5px 8px rgba(0,0,0,0.35),
+          0 3px 10px 4px rgba(0,0,0,0.2);
+      }
+      label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        color: #a5a39d;
+        font-size: 70px;
+        text-align: center;
+        line-height: 115px;
+        text-shadow: 0 2px 1px rgba(0,0,0,0.25);
+        border-radius: 50%;
+        background: #b25244; /* Fallback */
+        background: linear-gradient(#f7f2f6, #b2ac9e);
+        transition: all 0.3s ease-out;
+        z-index: -1;
+        box-shadow:
+          inset 0 2px 3px rgba(255,255,255,0.13),
+          0 5px 8px rgba(0,0,0,0.3),
+          0 10px 10px 4px rgba(0,0,0,0.3);
+      }
+      label:before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        right: -10px;
+        top: -10px;
+        bottom: -10px;
+        z-index: -1;
+        border-radius: inherit;
+        box-shadow: inset 0 10px 10px rgba(0,0,0,0.13);
+        -webkit-filter:blur(1px); /* Smooth trick */
+        filter: blur(1px); /* Future-proof */
+      }
+      label:after {
+        content: "";
+        position: absolute;
+        left: -20px;
+        right: -20px;
+        top: -20px;
+        bottom: -20px;
+        z-index: -2;
+        border-radius: inherit;
+      }
+      .fa-power-off:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        left: 50%;
+        top: 50%;
+        z-index: -1;
+        margin: -35% 0 0 -35%;
+        border-radius: 50%;
+        background: #d2cbc3; /* Fallback */
+        background: linear-gradient(#cbc7bc, #d2cbc3);
+        box-shadow:
+          0 -2px 5px rgba(255,255,255,0.05),
+          0 2px 5px rgba(255,255,255,0.1);
+        -webkit-filter:blur(1px); /* Smooth trick */
+        filter: blur(1px); /* Future-proof */
+      }
+    </style>
+    <div class="inset">
+      <input type="checkbox">
+      <label class="round"><i class="fa fa-power-off"></i></label>
+    </div>
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: 'ui-switch',
+      behaviors: [SquareBehavior],
+      // add properties and methods on the element's prototype
+
+      properties: {
+        // declare properties for the element's public API
+        style: {
+          type: String,
+          value: 'default'
+        }
+      }
+    });
+  </script>
+
+</dom-module>

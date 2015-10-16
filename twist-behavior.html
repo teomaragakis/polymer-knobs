@@ -1,0 +1,25 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="twist-behavior">
+  <template>
+
+  </template>
+<script src="../bower_components/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+<script>
+  TwistBehavior = {
+    properties: {
+      rotation: Number
+    },
+    listeners: {
+      'wheel': 'handleWheel'
+    },
+    ready: function() {
+      this.rotation = 0; // get the actual value
+    },
+    handleWheel: function(e) {
+      this.rotation += e.deltaY;
+      console.log(this.rotation);
+      //this.customStyle['--twisty-angle'] = 'rotate('+this.rotation+'deg)';
+      //this.updateStyles();
+    }
+  };
+</script>
