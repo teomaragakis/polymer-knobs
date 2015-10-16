@@ -23,7 +23,7 @@
     Polymer({
       is: 'ui-knob',
       listeners: {
-      'iron-resize': '_resizeHandler' // not working
+      'iron-resize': 'squareIt' // not working
     },
 
       properties: {
@@ -33,7 +33,8 @@
         }
       },
       behaviors: [
-        TwistBehavior
+        TwistBehavior,
+        Polymer.IronResizableBehavior
       ],
       squareIt: function() {
       //$('.round').css({'height': $('.round').outerWidth() +'px'});
