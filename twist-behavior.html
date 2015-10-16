@@ -12,9 +12,9 @@
     },
     handleWheel: function(e) {
       this.rotation += e.deltaY;
+      this.rotation += e.deltaX;
       console.log(this.rotation);
-      //this.customStyle['--twisty-angle'] = 'rotate('+this.rotation+'deg)';
-      //this.updateStyles();
+      this.$$('.twisty').style.transform = 'rotate('+ this.rotation +'deg)';
     }
   };
 </script>
