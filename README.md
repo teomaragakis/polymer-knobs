@@ -1,5 +1,7 @@
 # polymer-knobs
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/teomaragakis/polymer-knobs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 Knob, switch and other web components, built with Polymer, and the seed-element. @PolymerElements/seed-element. Leaving the rest of the README untouched for now. #todo
 
 Until version 0.1.0, the components are under development and not considered ready in any way.
