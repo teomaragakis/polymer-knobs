@@ -1,9 +1,37 @@
 {
   "name": "polymer-knobs",
+  "version": "0.0.1",
+  "authors": [
+    "Teo Maragakis <teomaragakis@gmail.com>"
+  ],
+  "description": "Knob, switch and other skeuomorphic web components, built with Polymer.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "skeuomorphic",
+    "knob",
+    "switch",
+    "ui"
+  ],
   "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0",
     "webcomponentsjs": "~0.7.14",
     "font-awesome": "~4.4.0",
     "iron-resizable-behavior": "http://github.com/PolymerElements/iron-resizable-behavior.git#~1.0.2",
     "bootstrap": "~3.3.5"
-  }
+  },
+  "license": "https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE",
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  },
+  "main": [
+    "./ui-knob.html",
+    "./ui-switch.html"
+  ],
+  "homepage": "https://github.com/teomaragakis/polymer-knobs",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ]
 }

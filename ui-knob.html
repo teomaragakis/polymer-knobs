@@ -1,8 +1,23 @@
-<link rel="import" href="bower_components/polymer/polymer.html">
+<!--
+@license
+Copyright (c) 2015 Teo Maragakis. All rights reserved.
+This code may only be used under the MIT style license found at https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE
+The complete set of authors may be found at [n/a] #todo
+The complete set of contributors may be found at [n/a] #todo
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at [n/a] #todo
+-->
+<link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="shared-styles.html"><!-- Calling common styles -->
-<link rel="import" href="bower_components/iron-resizable-behavior/iron-resizable-behavior.html">
-
-<link rel="import" href="twist-behavior.html">
+<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="squared-behavior.html">
+<link rel="import" href="twistable-behavior.html">
+<!--
+@group Polymer Knobs
+@element ui-knob
+@demo demo/ui-knob.html #todo
+@hero hero.svg #todo
+-->
 <dom-module id="ui-knob">
   <template>
     <style include="shared-styles">
@@ -10,38 +25,32 @@
         padding: 10%;
       }
     </style>
-      <div class="inset">
-        <div class="chamfer twisty">
-          <div class="face round">
-            <div class$="{{pointer}}"></div>
-          </div>
+    <div class="inset">
+      <div class="chamfer twisty">
+        <div class="face round">
+          <div class$="{{pointer}}"></div>
         </div>
       </div>
+    </div>
   </template>
-  <script>
-    Polymer({
-      is: 'ui-knob',
-      listeners: {
-      'iron-resize': 'squareIt' // not working
-      },
-      properties: {
-        pointer: {
-          type: String,
-          value: "hole"
-        }
-      },
-      behaviors: [
-        TwistBehavior,
-        Polymer.IronResizableBehavior
-      ],
-      squareIt: function() {
-        var victim;
-        victim = this.$$('.round');
-        victim.style.height = victim.offsetWidth + 'px';
-      },
-      ready: function() {
-        this.squareIt();
-      }
-    });
-  </script>
 </dom-module>
+
+<script>
+  Polymer({
+    is: 'ui-knob',
+    properties: {
+      /**
+       * `pointer` defines the knob's index style. It can be arrow, hole, or led.
+       */
+      pointer: {
+        type: String,
+        value: "hole"
+      }
+    },
+    behaviors: [
+      TwistableBehavior,
+      SquaredBehavior
+    ]
+  });
+
+</script>

@@ -1,0 +1,35 @@
+<!--
+@license
+Copyright (c) 2015 Teo Maragakis. All rights reserved.
+This code may only be used under the MIT style license found at https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE
+The complete set of authors may be found at [n/a] #todo
+The complete set of contributors may be found at [n/a] #todo
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at [n/a] #todo
+-->
+<link rel="import" href="../polymer/polymer.html">
+<script>
+  SquaredBehavior = {
+    listeners: {
+    'iron-resize': 'squareIt' // not working
+    },
+    behaviors: [
+      Polymer.IronResizableBehavior
+    ],
+    /**
+     * Selects the (first) element with the `.round` class.
+     * Sets its height equal to its width.
+     */
+    squareIt: function() {
+      var victim;
+      victim = this.$$('.round');
+      victim.style.height = victim.offsetWidth + 'px';
+    },
+
+    // Element Lifecycle
+
+    ready: function() {
+      this.squareIt();
+    }
+  };
+</script>

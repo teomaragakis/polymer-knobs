@@ -1,0 +1,29 @@
+<!--
+@license
+Copyright (c) 2015 Teo Maragakis. All rights reserved.
+This code may only be used under the MIT style license found at https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE
+The complete set of authors may be found at [n/a] #todo
+The complete set of contributors may be found at [n/a] #todo
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at [n/a] #todo
+-->
+<link rel="import" href="../polymer/polymer.html">
+<script>
+  TwistableBehavior = {
+    properties: {
+      rotation: Number
+    },
+    listeners: {
+      'wheel': 'handleWheel'
+    },
+    ready: function() {
+      this.rotation = 0; // get the actual value
+    },
+    handleWheel: function(e) {
+      this.rotation += e.deltaY;
+      this.rotation += e.deltaX;
+      console.log(this.rotation);
+      this.$$('.twisty').style.transform = 'rotate('+ this.rotation +'deg)';
+    }
+  };
+</script>

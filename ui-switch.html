@@ -1,6 +1,21 @@
-<link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="shared-styles.html"><!-- Calling common styles -->
-<link rel="import" href="square-behavior.html">
+<!--
+@license
+Copyright (c) 2015 Teo Maragakis. All rights reserved.
+This code may only be used under the MIT style license found at https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE
+The complete set of authors may be found at [n/a] #todo
+The complete set of contributors may be found at [n/a] #todo
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at [n/a] #todo
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="squared-behavior.html">
+<!--
+@group Polymer Knobs
+@element ui-switch
+@demo demo/ui-switch.html #todo
+@hero hero.svg #todo
+-->
 <dom-module id="ui-switch">
   <template>
     <style include="shared-styles">
@@ -100,16 +115,7 @@
     // element registration
     Polymer({
       is: 'ui-switch',
-      behaviors: [SquareBehavior],
-      // add properties and methods on the element's prototype
-
-      properties: {
-        // declare properties for the element's public API
-        style: {
-          type: String,
-          value: 'default'
-        }
-      }
+      behaviors: [SquaredBehavior],
     });
   </script>
 
