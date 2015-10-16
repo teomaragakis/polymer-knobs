@@ -3,6 +3,7 @@
   "dependencies": {
     "webcomponentsjs": "~0.7.14",
     "font-awesome": "~4.4.0",
-    "iron-resizable-behavior": "http://github.com/PolymerElements/iron-resizable-behavior.git#~1.0.2"
+    "iron-resizable-behavior": "http://github.com/PolymerElements/iron-resizable-behavior.git#~1.0.2",
+    "bootstrap": "~3.3.5"
   }
 }

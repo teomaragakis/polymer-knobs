@@ -24,8 +24,7 @@
       is: 'ui-knob',
       listeners: {
       'iron-resize': 'squareIt' // not working
-    },
-
+      },
       properties: {
         pointer: {
           type: String,
@@ -37,7 +36,6 @@
         Polymer.IronResizableBehavior
       ],
       squareIt: function() {
-      //$('.round').css({'height': $('.round').outerWidth() +'px'});
       this.victim = this.$$('.round');
       console.log(this.victim.offsetWidth); // this works fine
       this.victim.style.height = this.victim.offsetWidth;
@@ -47,9 +45,6 @@
     },
     ready: function() {
       this.squareIt();
-    },
-    _resizeHandler: function (e) {
-      console.log(e);
     }
   });
   </script>

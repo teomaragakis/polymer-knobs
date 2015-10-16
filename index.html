@@ -14,6 +14,7 @@
 
     <title>thingy.io</title>
 
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 
 
@@ -24,16 +25,17 @@
     <![endif]-->
   </head>
   <body>
-    <div class="third"><ui-knob class="style-default" pointer="arrow"></ui-knob></div>
-    <div class="third"><ui-knob class="style-default" pointer="led"></ui-knob></div>
-    <div class="third"><ui-knob class="style-default"></ui-knob></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-4"><ui-knob class="style-default" pointer="arrow"></ui-knob></div>
+    <div class="col-sm-6 col-md-4"><ui-knob class="style-default" pointer="led"></ui-knob></div>
+    <div class="col-sm-6 col-md-4"><ui-knob class="style-default"></ui-knob></div>
+      </div>
+    </div>
+
     <style>
       body { background-color: #e1e1e1; }
-      .third {
-        width: 30%;
 
-        float:left;
-      }
     </style>
   </body>
 </html>
