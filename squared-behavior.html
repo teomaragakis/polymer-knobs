@@ -8,22 +8,25 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at [n/a] #todo
 -->
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
 <script>
   SquaredBehavior = {
-    listeners: {
-    'iron-resize': 'squareIt' // not working
+    properties: {
+      victim: Object
     },
     behaviors: [
       Polymer.IronResizableBehavior
     ],
+    listeners: {
+    'iron-resize': 'squareIt' // not working
+    },
     /**
      * Selects the (first) element with the `.round` class.
      * Sets its height equal to its width.
      */
     squareIt: function() {
-      var victim;
-      victim = this.$$('.round');
-      victim.style.height = victim.offsetWidth + 'px';
+      this.victim = this.$$('.round');
+      this.victim.style.height = this.victim.offsetWidth + 'px';
     },
 
     // Element Lifecycle
