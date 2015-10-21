@@ -18,7 +18,8 @@
     "polymer": "Polymer/polymer#^1.1.0",
     "webcomponentsjs": "~0.7.14",
     "font-awesome": "~4.4.0",
-    "iron-resizable-behavior": "http://github.com/PolymerElements/iron-resizable-behavior.git#~1.0.2"
+    "iron-resizable-behavior": "http://github.com/PolymerElements/iron-resizable-behavior.git#~1.0.2",
+    "fittext": "*"
   },
   "license": "https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE",
   "devDependencies": {
