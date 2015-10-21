@@ -19,14 +19,10 @@ subject to an additional IP rights grant found at [n/a] #todo
 -->
 <dom-module id="ui-knob">
   <template>
-    <style include="shared-styles">
-      .inset {
-        padding: 10%;
-      }
-    </style>
+    <style include="shared-styles"></style>
     <div class="inset">
       <div class="shadow">
-        <div class="chamfer twisty">
+        <div id="chamfer">
           <div class="face round">
             <div class$="{{pointer}}"></div>
           </div>
