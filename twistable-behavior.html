@@ -11,19 +11,36 @@ subject to an additional IP rights grant found at [n/a] #todo
 <script>
   TwistableBehavior = {
     properties: {
-      rotation: Number
+      /**
+       * `rotation` defines the knob's pointer angle.
+       */
+      rotation: {
+        type: Number,
+        value: 0
+      },
+      /**
+       * `angle` defines the knob's maximum angle in degrees. Has a maximum of 180 (half a circle).
+       */
+      angle: {
+        type: Number,
+        value: 180
+      }
     },
     listeners: {
       'wheel': 'handleWheel'
     },
     ready: function() {
-      this.rotation = 0; // get the actual value
+      if (this.angle > 180)
+      this.angle = 180;
     },
     handleWheel: function(e) {
       this.rotation += e.deltaY;
       this.rotation += e.deltaX;
-      console.log(this.rotation);
-      this.$$('.twisty').style.transform = 'rotate('+ this.rotation +'deg)';
+      this.rotate(this.rotation);
+    },
+    rotate: function(rotation) {
+      this.rotation = Math.min(Math.max(parseInt(rotation), this.angle * -1), this.angle);
+      this.$.chamfer.style.transform = 'rotate('+ this.rotation +'deg)';
     }
   };
 </script>
