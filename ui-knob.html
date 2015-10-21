@@ -10,7 +10,6 @@ subject to an additional IP rights grant found at [n/a] #todo
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="shared-styles.html"><!-- Calling common styles -->
 <link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
-<link rel="import" href="squared-behavior.html">
 <link rel="import" href="twistable-behavior.html">
 <!--
 @group Polymer Knobs
@@ -50,9 +49,21 @@ subject to an additional IP rights grant found at [n/a] #todo
       }
     },
     behaviors: [
-      TwistableBehavior,
-      SquaredBehavior
-    ]
+      Polymer.IronResizableBehavior,
+      //SquaredBehavior,
+      TwistableBehavior
+    ],
+    listeners: {
+    'iron-resize': 'squareIt' // not working
+    },
+    squareIt: function() {
+      var victim;
+      victim = this.$$('.round');
+      victim.style.height = victim.offsetWidth + 'px';
+    },
+    ready: function() {
+      this.squareIt();
+    }
   });
 
 </script>
