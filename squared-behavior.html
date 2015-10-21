@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at [n/a] #todo
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
 <script>
-  SquaredBehavior = {
+  SquaredBehaviorNew = {
     properties: {
       victim: Object
     },
@@ -18,21 +18,20 @@ subject to an additional IP rights grant found at [n/a] #todo
       Polymer.IronResizableBehavior
     ],
     listeners: {
-    'iron-resize': 'squareIt' // not working
+    'iron-resize': 'equalizeDimensions' // not working
     },
     /**
      * Selects the (first) element with the `.round` class.
      * Sets its height equal to its width.
      */
-    squareIt: function() {
+    equalizeDimensions: function() {
       this.victim = this.$$('.round');
       this.victim.style.height = this.victim.offsetWidth + 'px';
     },
-
     // Element Lifecycle
-
     ready: function() {
-      this.squareIt();
+      this.equalizeDimensions();
     }
   };
+  SquaredBehavior = [ Polymer.IronResizableBehavior, SquaredBehaviorNew ];
 </script>

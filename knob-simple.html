@@ -9,15 +9,15 @@ subject to an additional IP rights grant found at [n/a] #todo
 -->
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="shared-styles.html"><!-- Calling common styles -->
-<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="squared-behavior.html">
 <link rel="import" href="twistable-behavior.html">
 <!--
 @group Polymer Knobs
-@element ui-knob
-@demo demo/ui-knob.html #todo
+@element knob-simple
+@demo demo/knob-simple.html #todo
 @hero hero.svg #todo
 -->
-<dom-module id="ui-knob">
+<dom-module id="knob-simple">
   <template>
     <style include="shared-styles"></style>
     <div class="inset">
@@ -34,7 +34,7 @@ subject to an additional IP rights grant found at [n/a] #todo
 
 <script>
   Polymer({
-    is: 'ui-knob',
+    is: 'knob-simple',
     properties: {
       /**
        * `pointer` defines the knob's index style. It can be arrow, hole, or led.
@@ -45,21 +45,9 @@ subject to an additional IP rights grant found at [n/a] #todo
       }
     },
     behaviors: [
-      Polymer.IronResizableBehavior,
-      //SquaredBehavior,
+      SquaredBehavior,
       TwistableBehavior
-    ],
-    listeners: {
-    'iron-resize': 'squareIt' // not working
-    },
-    squareIt: function() {
-      var victim;
-      victim = this.$$('.round');
-      victim.style.height = victim.offsetWidth + 'px';
-    },
-    ready: function() {
-      this.squareIt();
-    }
+    ]
   });
 
 </script>
