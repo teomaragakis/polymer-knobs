@@ -24,6 +24,15 @@ subject to an additional IP rights grant found at [n/a] #todo
       angle: {
         type: Number,
         value: 180
+      },
+      minValue: {
+        type: Number,
+        value: 0
+      },
+      value: Number,
+      maxValue: {
+        type: Number,
+        value: 100
       }
     },
     listeners: {
@@ -32,15 +41,24 @@ subject to an additional IP rights grant found at [n/a] #todo
     ready: function() {
       if (this.angle > 180)
       this.angle = 180;
+      this.getValue();
     },
     handleWheel: function(e) {
       this.rotation += e.deltaY;
       this.rotation += e.deltaX;
       this.rotate(this.rotation);
+      this.setValue(this.rotation);
+    },
+    getValue: function() {
+
     },
     rotate: function(rotation) {
       this.rotation = Math.min(Math.max(parseInt(rotation), this.angle * -1), this.angle);
       this.$.chamfer.style.transform = 'rotate('+ this.rotation +'deg)';
+
+    },
+    setValue: function(diff) {
+      this.value += diff;
     }
   };
 </script>
