@@ -1,5 +1,7 @@
 # polymer-knobs
 
+[![GitHub version](https://badge.fury.io/gh/teomaragakis%2Fpolymer-knobs.svg)](https://badge.fury.io/gh/teomaragakis%2Fpolymer-knobs)
+[![Dependency Status](https://gemnasium.com/teomaragakis/polymer-knobs.svg)](https://gemnasium.com/teomaragakis/polymer-knobs)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/teomaragakis/polymer-knobs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Knob, switch and other web components, built with Polymer, and the seed-element. @PolymerElements/seed-element. Leaving the rest of the README untouched for now. #todo
