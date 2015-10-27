@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Teo Maragakis - @teomaragakis - www.teomaragakis.com
+    Dimitris Kyriazopoulos
+
+# THANKS
+
+    Karl Tiedt - @ktiedt
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, Polymer, Bootstrap
