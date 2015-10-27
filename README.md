@@ -4,9 +4,11 @@
 [![Dependency Status](https://gemnasium.com/teomaragakis/polymer-knobs.svg)](https://gemnasium.com/teomaragakis/polymer-knobs)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/teomaragakis/polymer-knobs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+⚠️ Until version 1.0.0, the components are under development and should not be considered production-ready in any way. ⚠️  
+
 Knob, switch and other web components, built with Polymer, and the seed-element. @PolymerElements/seed-element. Leaving the rest of the README untouched for now. #todo
 
-Until version 1.0.0, the components are under development and not considered ready in any way.
+Hey you! Are you any good with @Polymer? I need some help! Take a look at the tasks I have marked with [help-wanted](https://github.com/teomaragakis/polymer-knobs/labels/help%20wanted) and roll up your sleeves! ✊ For questions, comments or ideas join me on [Gitter](https://gitter.im/teomaragakis/polymer-knobs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
 
 ## Dependencies
 
