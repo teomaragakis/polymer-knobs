@@ -21,16 +21,18 @@ subject to an additional IP rights grant found at [n/a] #todo
 
     <title>Polymer Knobs</title>
 
-    <link rel="stylesheet" href="../../bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
-        <div class="col-sm-6 col-md-4"><knob-simple class="style-default" pointer="arrow"></knob-simple></div>
-    <div class="col-sm-6 col-md-4"><knob-simple class="style-default" pointer="led"></knob-simple></div>
-    <div class="col-sm-6 col-md-4"><knob-simple class="style-default"></knob-simple></div>
+        <div class="col-sm-6 col-md-4"><knob-simple class="style-default" pointer="arrow" value="50"></knob-simple></div>
+    <div class="col-sm-6 col-md-4"><knob-simple class="style-default" pointer="led" value="75"></knob-simple></div>
+    <div class="col-sm-6 col-md-4"><knob-simple class="style-default" value="25"></knob-simple></div>
       </div>
     </div>
 
