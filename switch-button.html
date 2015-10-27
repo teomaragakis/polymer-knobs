@@ -20,6 +20,9 @@ subject to an additional IP rights grant found at [n/a] #todo
 <dom-module id="switch-button">
   <template>
     <style include="shared-styles">
+      :host:focus {
+        outline: none;
+      }
       :host(.style-default) {}
       :host(.style-default) .inset {
         background-image: -webkit-linear-gradient(top, #ebebeb 0, #fff 100%);
@@ -141,8 +144,14 @@ subject to an additional IP rights grant found at [n/a] #todo
         SquaredBehavior,
         Polymer.IronCheckedElementBehavior
       ],
+      hostAttributes: {
+        role: 'checkbox',
+        'aria-checked': false,
+        tabindex: 0
+      },
       _onCheckTap: function() {
         this.checked = this.$.checkbox.checked;
+        this.ariaChecked = this.checked;
       },
       ready: function() {
         this.$.checkbox.checked = this.checked; // get initial value
