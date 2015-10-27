@@ -12,15 +12,13 @@ subject to an additional IP rights grant found at [n/a] #todo
 <link rel="import" href="knob-input-behavior.html">
 <link rel="import" href="squared-behavior.html">
 <link rel="import" href="../iron-input/iron-input.html">
-<!--
-@group Polymer Knobs
-@element knob-simple
-@demo demo/knob-simple.html #todo
-@hero hero.svg #todo
--->
+
 <dom-module id="knob-simple">
   <template>
     <style include="shared-styles">
+      input {
+        display: none;
+      }
     </style>
     <div class="inset">
       <div class="shadow">
@@ -38,12 +36,25 @@ subject to an additional IP rights grant found at [n/a] #todo
 </dom-module>
 
 <script>
+  /*
+      *`<knob-simple>` generates a twistable knob that acts as an input field.
+      *
+      * Examples:
+      *
+      *     <knob-simple value="10" class="style-default" pointer="arrow"></knob-simple>
+      *
+      *     <knob-simple value="0" class="style-default" pointer="led"></knob-simple>
+      *
+      *     <knob-simple value="5" class="style-default"></knob-simple>
+      *
+      * @group Polymer Knobs
+        @element knob-simple
+        @demo demo/knob-simple.html
+      */
   Polymer({
     is: 'knob-simple',
     properties: {
-      /**
-       * `pointer` defines the knob's index style. It can be arrow, hole, or led.
-       */
+      /** Defines the knob's index style. It can be arrow, hole, or led. */
       pointer: {
         type: String,
         value: "hole"

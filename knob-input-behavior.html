@@ -11,14 +11,19 @@ subject to an additional IP rights grant found at [n/a] #todo
 
 <link rel="import" href="twistable-behavior.html">
 <script>
+
+  /**
+   * `KnobInputBehavior` makes a twistable knob play well with an input field. Extends `TwistableBehavior`.
+   *
+   * @polymerBehavior KnobInputBehavior
+   */
+
   KnobInputBehaviorImpl = {
     hostAttributes: {
       role: 'textbox'
     },
     properties: {
-      /**
-       * `value` is the current value of the input.
-       */
+      /** The current value of the input / host element. */
       value: {
         type: Number,
         value: 0,
@@ -26,32 +31,27 @@ subject to an additional IP rights grant found at [n/a] #todo
         notify: true,
         observer: '_valueChanged'
       },
-      /**
-       * `minValue` defines the minimum value the input field can get.
-       */
+      /** Defines the minimum value the input field can get. */
       minValue: {
         type: Number,
         value: 0
       },
-      /**
-       * `maxValue` defines the maximum value the input field can get.
-       */
+      /** Defines the maximum value the input field can get. */
       maxValue: {
         type: Number,
         value: 100
       },
-      /**
-       * `inputId` defines the id property of the input field to control.
-       */
+      /** Defines the id property of the input field to control. */
       inputId: String
     },
+    /* Sets the correct angle on the knob, depending on the value and limits.*/
     setDegrees: function(value) {
       var m = this.minValue + (this.maxValue - this.minValue)/2
       var d = value - m ;
       var x = this.angle * d / (this.maxValue - m);
       this.rotate(x);
-      //this.rotation = value * 2 * this.angle / (this.maxValue - this.minValue);
     },
+    /* handles the input value change with the wheel event. `Highjacks the handleWheel` method from `TwistableBehavior`. */
     handleWheel: function(e) {
       var tempValue = this.value;
       tempValue += e.deltaX;
@@ -59,7 +59,6 @@ subject to an additional IP rights grant found at [n/a] #todo
       this.setDegrees(this.value);
     },
     ready: function() {
-      //if host has value get it and apply angle
       this.$.input.value = this.value;
       this.setDegrees(this.value);
     }

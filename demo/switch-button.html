@@ -15,14 +15,16 @@ subject to an additional IP rights grant found at [n/a] #todo
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Teo Maragakis">
-    <script src="../webcomponentsjs/webcomponents-lite.min.js"></script>
 
-    <link rel="import" href="../ui-switch.html">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../switch-button.html">
 
     <title>Polymer Knobs</title>
 
-    <link rel="stylesheet" href="../../bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,11 +33,25 @@ subject to an additional IP rights grant found at [n/a] #todo
     <![endif]-->
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
-        <div class="col-sm-6 col-md-4"><ui-switch></ui-switch></div>
-        <div class="col-sm-6 col-md-4"><ui-switch></ui-switch></div>
-        <div class="col-sm-6 col-md-4"><ui-switch></ui-switch></div>
+        <div class="col-sm-6 col-md-4"><switch-button
+              checked
+              class="style-default"
+              label="A plain default button.">
+            </switch-button>
+
+</div>
+        <div class="col-sm-6 col-md-4"><switch-button
+              checked
+              icon ="fa-power-off"
+              class="style-default"
+              label="An active default button.">
+            </switch-button>
+            </div>
+        <div class="col-sm-6 col-md-4"><switch-button icon="fa-wifi" class="style-default" led="blue" label="A button with a different led color.">
+            </switch-button>
+            </div>
       </div>
     </div>
 
@@ -44,7 +60,6 @@ subject to an additional IP rights grant found at [n/a] #todo
         background-color: #f5f5f5;
         padding-top: 20px;
       }
-
     </style>
   </body>
 </html>

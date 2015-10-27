@@ -1,6 +1,6 @@
 {
   "name": "polymer-knobs",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "authors": [
     "Teo Maragakis <teomaragakis@gmail.com>",
     "Dimitris \"Krom\" Kyriazopoulos <jimfeedback@gmail.com>"
@@ -14,6 +14,7 @@
     "switch",
     "ui"
   ],
+  "license": "https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.1.0",
     "webcomponentsjs": "~0.7.14",
@@ -22,13 +23,13 @@
     "iron-checked-element-behavior": "PolymerElements/iron-checked-element-behavior#~1.0.2",
     "iron-input": "PolymerElements/iron-input#~1.0.6"
   },
-  "license": "https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE",
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0"
   },
-  "main": "polymer-knobs.html",
+  "main": "",
   "homepage": "https://github.com/teomaragakis/polymer-knobs",
   "ignore": [
     "/.*",
