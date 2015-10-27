@@ -1,0 +1,68 @@
+<!--
+@license
+Copyright (c) 2015 Teo Maragakis. All rights reserved.
+This code may only be used under the MIT style license found at https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE
+The complete set of authors may be found at [n/a] #todo
+The complete set of contributors may be found at [n/a] #todo
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at [n/a] #todo
+-->
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="twistable-behavior.html">
+<script>
+  KnobInputBehaviorImpl = {
+    hostAttributes: {
+      role: 'textbox'
+    },
+    properties: {
+      /**
+       * `value` is the current value of the input.
+       */
+      value: {
+        type: Number,
+        value: 0,
+        reflectToAttribute: true,
+        notify: true,
+        observer: '_valueChanged'
+      },
+      /**
+       * `minValue` defines the minimum value the input field can get.
+       */
+      minValue: {
+        type: Number,
+        value: 0
+      },
+      /**
+       * `maxValue` defines the maximum value the input field can get.
+       */
+      maxValue: {
+        type: Number,
+        value: 100
+      },
+      /**
+       * `inputId` defines the id property of the input field to control.
+       */
+      inputId: String
+    },
+    setDegrees: function(value) {
+      var m = this.minValue + (this.maxValue - this.minValue)/2
+      var d = value - m ;
+      var x = this.angle * d / (this.maxValue - m);
+      this.rotate(x);
+      //this.rotation = value * 2 * this.angle / (this.maxValue - this.minValue);
+    },
+    handleWheel: function(e) {
+      var tempValue = this.value;
+      tempValue += e.deltaX;
+      this.value = Math.min(Math.max(parseInt(tempValue), this.minValue), this.maxValue);
+      this.setDegrees(this.value);
+    },
+    ready: function() {
+      //if host has value get it and apply angle
+      this.$.input.value = this.value;
+      this.setDegrees(this.value);
+    }
+  };
+  KnobInputBehavior = [ TwistableBehavior, KnobInputBehaviorImpl ];
+</script>

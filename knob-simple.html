@@ -9,8 +9,10 @@ subject to an additional IP rights grant found at [n/a] #todo
 -->
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="shared-styles.html"><!-- Calling common styles -->
+<link rel="import" href="knob-input-behavior.html">
 <link rel="import" href="squared-behavior.html">
-<link rel="import" href="twistable-behavior.html">
+<link rel="import" href="../iron-input/iron-input.html">
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 <!--
 @group Polymer Knobs
 @element knob-simple
@@ -19,12 +21,16 @@ subject to an additional IP rights grant found at [n/a] #todo
 -->
 <dom-module id="knob-simple">
   <template>
-    <style include="shared-styles"></style>
+    <style include="shared-styles">
+    </style>
     <div class="inset">
       <div class="shadow">
         <div id="chamfer">
           <div class="face round">
             <div class$="{{pointer}}"></div>
+            <input id="input" is="iron-input"
+              allowed-pattern="[0-9]" prevent-invalid-input
+              value="{{value}}">
           </div>
         </div>
       </div>
@@ -46,7 +52,7 @@ subject to an additional IP rights grant found at [n/a] #todo
     },
     behaviors: [
       SquaredBehavior,
-      TwistableBehavior
+      KnobInputBehavior
     ]
   });
 

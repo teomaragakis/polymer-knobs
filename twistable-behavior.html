@@ -12,27 +12,11 @@ subject to an additional IP rights grant found at [n/a] #todo
   TwistableBehavior = {
     properties: {
       /**
-       * `rotation` defines the knob's pointer angle.
-       */
-      rotation: {
-        type: Number,
-        value: 0
-      },
-      /**
        * `angle` defines the knob's maximum angle in degrees. Has a maximum of 180 (half a circle).
        */
       angle: {
         type: Number,
-        value: 180
-      },
-      minValue: {
-        type: Number,
-        value: 0
-      },
-      value: Number,
-      maxValue: {
-        type: Number,
-        value: 100
+        value: 90
       }
     },
     listeners: {
@@ -41,24 +25,15 @@ subject to an additional IP rights grant found at [n/a] #todo
     ready: function() {
       if (this.angle > 180)
       this.angle = 180;
-      this.getValue();
     },
     handleWheel: function(e) {
-      this.rotation += e.deltaY;
-      this.rotation += e.deltaX;
-      this.rotate(this.rotation);
-      this.setValue(this.rotation);
-    },
-    getValue: function() {
-
+      var deltaSum = e.deltaY;
+      deltaSum += e.deltaX;
+      this.rotate(deltaSum);
     },
     rotate: function(rotation) {
-      this.rotation = Math.min(Math.max(parseInt(rotation), this.angle * -1), this.angle);
-      this.$.chamfer.style.transform = 'rotate('+ this.rotation +'deg)';
-
-    },
-    setValue: function(diff) {
-      this.value += diff;
+      rotation = Math.min(Math.max(parseInt(rotation), this.angle * -1), this.angle);
+      this.$.chamfer.style.transform = 'rotate('+ rotation +'deg)';
     }
   };
 </script>

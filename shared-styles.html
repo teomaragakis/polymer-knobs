@@ -13,16 +13,19 @@ subject to an additional IP rights grant found at [n/a] #todo
   <template>
     <style>
       :host {
-        margin-bottom: 20px;
         --pointer: {
           z-index: 2;
           margin: 0px auto;
           border-radius: 100%;
         }
       }
+      input {
+        opacity: 0;
+      }
       .inset {
         width: 100%;
         border-radius: 100%;
+        cursor: pointer;
       }
       .shadow {
         border-radius: 100%;
