@@ -28,8 +28,7 @@ subject to an additional IP rights grant found at [n/a] #todo
         type: Number,
         value: 0,
         reflectToAttribute: true,
-        notify: true,
-        observer: '_valueChanged'
+        notify: true
       },
       /** Defines the minimum value the input field can get. */
       minValue: {
@@ -54,7 +53,7 @@ subject to an additional IP rights grant found at [n/a] #todo
     /* handles the input value change with the wheel event. `Highjacks the handleWheel` method from `TwistableBehavior`. */
     handleWheel: function(e) {
       var tempValue = this.value;
-      tempValue += e.deltaX;
+      tempValue += e.deltaY;
       this.value = Math.min(Math.max(parseInt(tempValue), this.minValue), this.maxValue);
       this.setDegrees(this.value);
     },

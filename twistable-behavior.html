@@ -33,8 +33,8 @@ subject to an additional IP rights grant found at [n/a] #todo
     },
     /* Gets the delta from wheel events */
     handleWheel: function(e) {
-      var deltaSum = e.deltaY;
-      deltaSum += e.deltaX;
+      var deltaSum = 0;
+      deltaSum += e.deltaY;
       this.rotate(deltaSum);
     },
     /* Limits the rotation within the given limits and rotates the chamfer. */
