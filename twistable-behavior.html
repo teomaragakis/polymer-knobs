@@ -9,6 +9,12 @@ subject to an additional IP rights grant found at [n/a] #todo
 -->
 <link rel="import" href="../polymer/polymer.html">
 <script>
+  /**
+   * Use `TwistableBehavior` to make things rotate!
+   *
+   * @demo demo/index.html
+   * @polymerBehavior TwistableBehavior
+   */
   TwistableBehavior = {
     properties: {
       /**
@@ -26,11 +32,13 @@ subject to an additional IP rights grant found at [n/a] #todo
       if (this.angle > 180)
       this.angle = 180;
     },
+    /* Gets the delta from wheel events */
     handleWheel: function(e) {
       var deltaSum = e.deltaY;
       deltaSum += e.deltaX;
       this.rotate(deltaSum);
     },
+    /* Limits the rotation within the given limits and rotates the chamfer. */
     rotate: function(rotation) {
       rotation = Math.min(Math.max(parseInt(rotation), this.angle * -1), this.angle);
       this.$.chamfer.style.transform = 'rotate('+ rotation +'deg)';
