@@ -108,11 +108,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
     <div class="inset">
-      <input id="checkbox" on-tap="_onCheckTap" type="checkbox">
+      <input id="checkbox" checked$="{{checked}}" on-tap="_onCheckTap" type="checkbox">
       <div class="shadow">
         <div id="chamfer">
           <div class="face round">
-          <label class="round"><i id="icon" class="fa"></i></label>
+          <label class="round"><i id="icon" class$="{{_computeIconClass(icon, led)}}"></i></label>
           </div>
         </div>
       </div>
@@ -149,7 +149,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           value: "green"
         },
         /* Sets the control's label. */
-        label: String
+        label: String,
+        checked: Boolean,
       },
       behaviors: [
         SquaredBehavior,
@@ -166,14 +167,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.checked = this.$.checkbox.checked;
         this.ariaChecked = this.checked;
       },
+      _computeIconClass: function(icon, led) {
+        return ['fa', icon, led].join(' ');
+      },
       attached: function() {
         fitText(this.$.icon, 0.1);
       },
-      ready: function() {
-        this.$.checkbox.checked = this.checked;
-        this.$.icon.className += " " + this.icon;
-        this.$.icon.className += " " + this.led;
-      }
     });
   </script>
 
