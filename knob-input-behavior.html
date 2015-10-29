@@ -52,6 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
     /* handles the input value change with the wheel event. `Highjacks the handleWheel` method from `TwistableBehavior`. */
     handleWheel: function(e) {
+      e.preventDefault();
       var tempValue = this.value;
       tempValue += e.deltaY;
       this.value = Math.min(Math.max(parseInt(tempValue), this.minValue), this.maxValue);

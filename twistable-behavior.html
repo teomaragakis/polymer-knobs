@@ -33,6 +33,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
     /* Gets the delta from wheel events */
     handleWheel: function(e) {
+      e.preventDefault();
       var deltaSum = 0;
       deltaSum += e.deltaY;
       this.rotate(deltaSum);
