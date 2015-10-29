@@ -25,7 +25,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
     listeners: {
-      'wheel': 'handleWheel'
+      'wheel': 'handleWheel',
+      'track': 'handleTrack'
     },
     ready: function() {
       if (this.angle > 180)
@@ -37,6 +38,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var deltaSum = 0;
       deltaSum += e.deltaY;
       this.rotate(deltaSum);
+    },
+    handleTrack: function(e) {
+      e.preventDefault();
+      var dxSum = 0;
+      dxSum += e.detail.dx;
+      this.rotate(e.detail.dx);
     },
     /* Limits the rotation within the given limits and rotates the chamfer. */
     rotate: function(rotation) {
