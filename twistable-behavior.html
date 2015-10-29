@@ -17,9 +17,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   TwistableBehavior = {
     properties: {
       /**
-       * `angle` defines the knob's maximum angle in degrees. Has a maximum of 180 (half a circle).
+       * Defines the knob's maximum angle in degrees. Has a maximum of 180 (half a circle).
        */
-      angle: {
+      maxAngle: {
         type: Number,
         value: 90
       }
@@ -28,26 +28,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'wheel': 'handleWheel',
       'track': 'handleTrack'
     },
-    ready: function() {
-      if (this.angle > 180)
-      this.angle = 180;
+    created: function() {
+      //this.maxAngle = Math.min(Math.max(parseInt(this.maxAngle), 1), 180);
+      if (this.maxAngle > 180)
+      this.maxAngle = 180;
     },
     /* Gets the delta from wheel events */
     handleWheel: function(e) {
       e.preventDefault();
       var deltaSum = 0;
       deltaSum += e.deltaY;
-      this.rotate(deltaSum);
+      this.setAngle(deltaSum);
     },
+    /* Gets the delta from drag (touch) events. Drag horizontally. */
     handleTrack: function(e) {
       e.preventDefault();
       var dxSum = 0;
       dxSum += e.detail.dx;
-      this.rotate(e.detail.dx);
+      this.setAngle(e.detail.dx);
     },
-    /* Limits the rotation within the given limits and rotates the chamfer. */
-    rotate: function(rotation) {
-      rotation = Math.min(Math.max(parseInt(rotation), this.angle * -1), this.angle);
+    /* Takes a delta from an event and calls the methods it needs to call.  */
+    rotate: function(delta) {
+
+    },
+    /* Limits the rotation within the given limits and rotates the movable part via CSS. */
+    setAngle: function(rotation) {
+      rotation = Math.min(Math.max(parseInt(rotation), this.maxAngle * -1), this.maxAngle);
       this.$.chamfer.style.transform = 'rotate('+ rotation +'deg)';
     }
   };

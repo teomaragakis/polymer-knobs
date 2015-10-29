@@ -47,8 +47,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     setDegrees: function(value) {
       var m = this.minValue + (this.maxValue - this.minValue)/2
       var d = value - m ;
-      var x = this.angle * d / (this.maxValue - m);
-      this.rotate(x);
+      var x = this.maxAngle * d / (this.maxValue - m);
+      this.setAngle(x);
     },
     /* handles the input value change with the wheel event. `Highjacks the handleWheel` method from `TwistableBehavior`. */
     handleWheel: function(e) {
