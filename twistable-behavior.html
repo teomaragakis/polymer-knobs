@@ -16,9 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    */
   TwistableBehavior = {
     properties: {
-      /**
-       * Defines the knob's maximum angle in degrees. Has a maximum of 180 (half a circle).
-       */
+      /* Defines the knob's maximum angle in degrees. Has a maximum of 180 (half a circle). */
       maxAngle: {
         type: Number,
         value: 90
@@ -54,7 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /* Limits the rotation within the given limits and rotates the movable part via CSS. */
     setAngle: function(rotation) {
       rotation = Math.min(Math.max(parseInt(rotation), this.maxAngle * -1), this.maxAngle);
-      this.$.chamfer.style.transform = 'rotate('+ rotation +'deg)';
+      this.transform('rotate('+ rotation +'deg)', this.$.chamfer);
     }
   };
 </script>
