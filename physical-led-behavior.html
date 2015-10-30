@@ -8,7 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <link rel="import" href="../polymer/polymer.html">
-
+<script type="text/javascript" src="fittext.js"></script>
 <script>
 
   /**
@@ -20,7 +20,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   PhysicalLedBehavior = {
     properties: {
       /* Sets the icon on the button. Use the class name of any font-awesome icon. */
-      icon: String,
+      iconName: String,
+      /* The element which will hold the icon */
+      iconHolder: Object,
       /* Sets the button's led color. Defaults to green. */
       led: {
         type: String,
@@ -32,15 +34,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return ['fa', icon, led].join(' ');
     },
     attached: function() {
-      var icon = document.createElement('i');
-      icon.id = "icon";
-      icon.class = this._computeIconClass(this.icon, this.led);
-      Polymer.dom(this.$.iconholder).appendChild(icon);
-      fitText(icon, 0.1);
+      if (this.iconName) {
+        var icon = document.createElement('i');
+        Polymer.dom(icon).setAttribute('id', 'icon');
+        Polymer.dom(icon).setAttribute('class', this._computeIconClass(this.iconName, this.led));
+        //debugger;
+        Polymer.dom(this.iconHolder).appendChild(icon);
+        Polymer.dom.flush();
+        fitText(icon, 0.1);
+      }
     }
-
   };
+
 </script>
-
-
-<!-- <i id="icon" class$="{{_computeIconClass(icon, led)}}"></i> -->
