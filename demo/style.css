@@ -1,0 +1,14 @@
+body {
+  background-color: #f5f5f5;
+  padding-top: 20px;
+  color: #505050;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.row {
+  margin-bottom: 20px;
+}
