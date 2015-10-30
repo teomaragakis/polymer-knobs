@@ -117,14 +117,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </div>
         </div>
       </div>
-
     </div>
     <div class="rlabel">{{label}}</div>
   </template>
   <script type="text/javascript" src="fittext.js"></script>
   <script>
     /*
-      *`<switch-button>` generates a switch button that acts as a checkbox.
+      *`<switch-button>` generates a switch button that acts as a push button or a checkbox.
       *
       * Examples:
       *
@@ -133,11 +132,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       *     <switch-button led="blue" label="Some random button."></switch-button>
       *
       *     <switch-button icon="fa-power-off" label="Darn."></switch-button>
-
-      @group Polymer Knobs
-  @element switch-button
-  @demo demo/switch-button.html
       *
+      *     @group Polymer Knobs
+      *     @element switch-button
+      *     @demo demo/buttons.html
       */
     Polymer({
       is: 'switch-button',
