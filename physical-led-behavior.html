@@ -1,0 +1,46 @@
+<!--
+@license
+Copyright (c) 2015 Teo Maragakis. All rights reserved.
+This code may only be used under the MIT style license found at https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE
+The complete set of authors and contributors may be found at https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/humans.txt
+
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+
+<script>
+
+  /**
+   * `PhysicalLedBehavior` handles some led functionality.
+   *
+   * @polymerBehavior PhysicalLedBehavior
+  */
+
+  PhysicalLedBehavior = {
+    properties: {
+      /* Sets the icon on the button. Use the class name of any font-awesome icon. */
+      icon: String,
+      /* Sets the button's led color. Defaults to green. */
+      led: {
+        type: String,
+        value: "green"
+      }
+    },
+    /* Unites all the classes ✊ ☭ */
+    _computeIconClass: function(icon, led) {
+      return ['fa', icon, led].join(' ');
+    },
+    attached: function() {
+      var icon = document.createElement('i');
+      icon.id = "icon";
+      icon.class = this._computeIconClass(this.icon, this.led);
+      Polymer.dom(this.$.iconholder).appendChild(icon);
+      fitText(icon, 0.1);
+    }
+
+  };
+</script>
+
+
+<!-- <i id="icon" class$="{{_computeIconClass(icon, led)}}"></i> -->

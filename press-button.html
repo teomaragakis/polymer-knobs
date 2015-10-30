@@ -1,0 +1,147 @@
+<!--
+@license
+Copyright (c) 2015 Teo Maragakis. All rights reserved.
+This code may only be used under the MIT style license found at https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/LICENSE
+The complete set of authors and contributors may be found at https://raw.githubusercontent.com/teomaragakis/polymer-knobs/master/humans.txt
+
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="physical-button-behavior.html">
+<link rel="import" href="physical-led-behavior.html">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+
+<dom-module id="press-button">
+  <template>
+    <style include="shared-styles">
+      :host:focus {
+        outline: none;
+      }
+      :host(.style-default) {}
+      :host(.style-default) .inset {
+        background-image: -webkit-linear-gradient(top, #ebebeb 0, #fff 100%);
+        background-image: -o-linear-gradient(top, #ebebeb 0, #fff 100%);
+        background-image: linear-gradient(to bottom, #ebebeb 0, #fff 100%);
+        background-repeat: repeat-x;
+        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffebebeb', endColorstr='#ffffffff', GradientType=0);
+        box-shadow: inset 0 -3px 5px rgba(255, 255, 255, 0.1);
+        padding: 20%;
+      }
+      :host(.style-default) .inset .shadow {
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3),
+          inset 0 -3px 3px rgba(255, 255, 255, 0.2);
+        transition: all 0.1s ease-out;
+      }
+      :host(.style-default) input:checked ~ .shadow {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), inset 0 -3px 3px rgba(255, 255, 255, 0.2);
+      }
+      :host(.style-default) #chamfer {
+        padding: 15%;
+      }
+      label {
+        width: 100%;
+        height: 100%;
+      }
+      :host(.style-default) input {
+        margin: 0px;
+        position: absolute;
+        left: 10%;
+        top: 10%;
+        width: 80%;
+        height: 80%;
+        z-index: 100;
+        opacity: 0;
+        cursor: pointer;
+      }
+      :host(.style-default) label {
+        padding: 20%;
+        text-align: center;
+      }
+      :host(.style-default) input ~ .shadow .face {
+        background-color: #e8e8e8;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(232, 232, 232)), to(rgb(254, 254, 254)));
+        background-image: -webkit-linear-gradient(top, rgb(232, 232, 232), rgb(254, 254, 254));
+        background-image: -moz-linear-gradient(top, rgb(232, 232, 232), rgb(254, 254, 254));
+        background-image: -o-linear-gradient(top, rgb(232, 232, 232), rgb(254, 254, 254));
+        background-image: -ms-linear-gradient(top, rgb(232, 232, 232), rgb(254, 254, 254));
+        background-image: linear-gradient(top, rgb(232, 232, 232), rgb(254, 254, 254));
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e8e8e8', EndColorStr='#fefefe');
+        border: none;
+        transition: background-color 0.3s ease-in;
+      }
+      :host(.style-default) input:checked ~ .shadow .face {
+        background-color: #e9e9e9;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(233, 233, 233)), to(rgb(255, 255, 255)));
+        background-image: -webkit-linear-gradient(top, rgb(233, 233, 233), rgb(255, 255, 255));
+        background-image: -moz-linear-gradient(top, rgb(233, 233, 233), rgb(255, 255, 255));
+        background-image: -o-linear-gradient(top, rgb(233, 233, 233), rgb(255, 255, 255));
+        background-image: -ms-linear-gradient(top, rgb(233, 233, 233), rgb(255, 255, 255));
+        background-image: linear-gradient(top, rgb(233, 233, 233), rgb(255, 255, 255));
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e9e9e9', EndColorStr='#ffffff');
+      }
+
+      :host(.style-default) i {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #dadada;
+        transition: color 0.4s ease-in,
+          text-shadow 0.4s ease-in;
+          text-shadow: rgb(210, 210, 210) 1px 1px 0px;
+      }
+      :host(.style-default) i.green {
+        color: rgb(98, 217, 99);
+        text-shadow: 0 0 15px rgba(105, 216, 103, 0.8);
+      }
+      :host(.style-default) i.blue {
+        color: rgb(40,170,210);
+        text-shadow: 0 0 15px rgba(40,170,210, 0.8);
+      }
+      :host(.style-default) i.red {
+        color: #e12c2c;
+        text-shadow: 0 0 15px rgba(221, 39, 49, 0.8);
+      }
+    </style>
+    <div class="inset">
+      <div class="shadow">
+        <div id="chamfer">
+          <div class="face round">
+            <label id="iconholder" class="round"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rlabel">{{label}}</div>
+  </template>
+  <script type="text/javascript" src="fittext.js"></script>
+  <script>
+    /*
+      * A `<press-button>` is a button that doesn't switch state after released like a checkbox. While pushed, it has a `pushed` attribute.
+      *
+      * Examples:
+      *
+      *     <press-button class="style-default"></press-button>
+      *
+      *     <press-button led="blue" label="Some random button."></press-button>
+      *
+      *     <press-button icon="fa-power-off" label="Darn."></press-button>
+      *
+      *     @group Polymer Knobs
+      *     @element press-button
+      *     @demo demo/buttons.html
+      */
+    Polymer({
+      is: 'press-button',
+      properties: {
+        /* Sets the control's label. */
+        label: String
+      },
+      behaviors: [
+        PhysicalButtonBehavior,
+        PhysicalLedBehavior
+      ]
+    });
+  </script>
+</dom-module>
