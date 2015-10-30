@@ -8,7 +8,6 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <link rel="import" href="../polymer/polymer.html">
-
 <link rel="import" href="twistable-behavior.html">
 <script>
 
@@ -28,7 +27,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         type: Number,
         value: 0,
         reflectToAttribute: true,
-        notify: true
+        notify: true,
+        observer: 'valueChanged'
       },
       /** Defines the minimum value the input field can get. */
       minValue: {
@@ -43,7 +43,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       /** Defines the id property of the input field to control. */
       inputId: String
     },
-    /* Sets the correct angle on the knob, depending on the value and limits.*/
+    /* Sets the correct angle on the knob, depending on the value and limits. */
     setDegrees: function(value) {
       var m = this.minValue + (this.maxValue - this.minValue)/2
       var d = value - m ;
@@ -53,13 +53,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /* handles the input value change with the wheel event. `Highjacks the handleWheel` method from `TwistableBehavior`. */
     handleWheel: function(e) {
       e.preventDefault();
-      var tempValue = this.value;
-      tempValue += e.deltaY;
-      this.value = Math.min(Math.max(parseInt(tempValue), this.minValue), this.maxValue);
-      this.setDegrees(this.value);
+      this.changeValue(e.deltaY * -1);
+    },
+    /* Gets the delta from drag (touch) events. Drag horizontally. */
+    handleTrack: function(e) {
+      this.changeValue(e.detail.dx/50);
+    },
+    changeValue: function(difference) {
+      this.value = Math.min(Math.max(parseInt(this.value+difference), this.minValue), this.maxValue);
+    },
+    /* Listens for changes in the value and calculates rotation. */
+    valueChanged: function(oldVal, newVal) {
+      this.setDegrees(newVal);
     },
     ready: function() {
-      this.$.input.value = this.value;
       this.setDegrees(this.value);
     }
   };
