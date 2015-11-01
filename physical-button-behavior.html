@@ -22,13 +22,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   */
 
   PhysicalButtonBehaviorImpl = {
-
+    properties: {
+      toggles: {
+        type: Boolean,
+        value: false,
+      }
+    }
   };
 
   PhysicalButtonBehavior = [
     SquaredBehavior,
     PhysicalLedBehavior,
     Polymer.IronButtonState,
-    Polymer.IronCheckedElementBehavior
+    Polymer.IronCheckedElementBehavior,
+    PhysicalButtonBehaviorImpl
   ];
 </script>
