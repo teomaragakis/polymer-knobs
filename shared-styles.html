@@ -123,6 +123,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           text-shadow 0.4s ease-in;
           text-shadow: rgb(210, 210, 210) 1px 1px 0px;
       }
+      :host([instant-on].style-default) i {
+        transition: none;
+      }
       :host([pressed].style-default) i.green, :host([active].style-default) i.green, :host([always-lit].style-default) i.green {
         color: rgb(98, 217, 99);
         text-shadow: 0 0 15px rgba(105, 216, 103, 0.8);
