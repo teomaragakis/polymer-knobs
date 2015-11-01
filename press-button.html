@@ -10,8 +10,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="physical-button-behavior.html">
-<link rel="import" href="physical-led-behavior.html">
-<link rel="import" href="control-label-behavior.html">
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 
 <dom-module id="press-button">
@@ -106,9 +104,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.iconHolder = this.$.iconholder;
       },
       behaviors: [
-        PhysicalButtonBehavior,
-        PhysicalLedBehavior,
-        ControlLabelBehavior
+        PhysicalButtonBehavior
       ]
     });
   </script>
