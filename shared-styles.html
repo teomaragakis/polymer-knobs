@@ -11,20 +11,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="shared-styles">
   <template>
     <style>
+      :host:focus {
+        outline: none;
+      }
+
       :host {
         --pointer: {
           z-index: 2;
           margin: 0px auto;
           border-radius: 100%;
         }
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
       }
       .inset {
         width: 100%;
         border-radius: 100%;
-        cursor: pointer;
       }
       .shadow {
         border-radius: 100%;
+      }
+      .shadow * {
+        cursor: pointer;
       }
       #chamfer {
         width: 100%;
@@ -98,7 +108,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         text-transform: uppercase;
         font-size: 1.3em;
         color: #b4b4b4;
+        -moz-user-select: text;
+        -webkit-user-select: text;
+        -ms-user-select: text;
       }
+
+      :host(.style-default) i {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #dadada;
+
+        transition: color 0.4s ease-in,
+          text-shadow 0.4s ease-in;
+          text-shadow: rgb(210, 210, 210) 1px 1px 0px;
+      }
+      :host([pressed].style-default) i.green, :host([active].style-default) i.green, :host([always-lit].style-default) i.green {
+        color: rgb(98, 217, 99);
+        text-shadow: 0 0 15px rgba(105, 216, 103, 0.8);
+      }
+      :host([pressed].style-default) i.blue, :host([active].style-default) i.blue, :host([always-lit].style-default) i.blue {
+        color: rgb(40,170,210);
+        text-shadow: 0 0 15px rgba(40,170,210, 0.8);
+      }
+      :host([pressed].style-default) i.red, :host([active].style-default) i.red, :host([always-lit].style-default) i.red {
+        color: #e12c2c;
+        text-shadow: 0 0 15px rgba(221, 39, 49, 0.8);
+      }
+
     </style>
   </template>
 </dom-module>
