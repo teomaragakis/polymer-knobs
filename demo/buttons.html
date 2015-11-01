@@ -23,7 +23,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="../press-button.html">
-    <link rel="import" href="../switch-button.html">
 
     <title>Polymer Knobs</title>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -35,34 +34,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <body>
     <div class="container">
       <div class="row">
-        <h2 class="col-sm-12">Press buttons</h2>
+        <h2 class="col-sm-12">&lt;press-button&gt;</h2>
         <div class="col-xs-6 col-md-3">
-          <press-button class="style-default" label="A plain press button."></press-button>
+          <press-button class="style-default">A plain press button.</press-button>
         </div>
         <div class="col-xs-6 col-md-3">
-          <press-button class="style-default" label="A press button with an icon" icon-name="fa-battery-three-quarters" led="red"></press-button>
+          <press-button class="style-default" icon-name="fa-battery-three-quarters" led="red">A press button with an icon.</press-button>
         </div>
         <div class="col-xs-6 col-md-3">
           <press-button class="style-default" icon-name="fa-bell"></press-button>
         </div>
         <div class="col-xs-6 col-md-3">
-          <press-button class="style-default" icon-name="fa-play-circle-o" led="blue" label="A plain press button"></press-button>
+          <press-button class="style-default" always-lit icon-name="fa-play-circle-o" led="blue">A press button with an always-lit led icon.</press-button>
         </div>
       </div>
       <div class="row">
-        <h2 class="col-sm-12">Switch buttons</h2>
+        <h2 class="col-sm-12">&lt;press-button toggles&gt;</h2>
         <div class="col-xs-6 col-md-3">
-          <switch-button checked class="style-default" label="A plain default button"></switch-button>
+          <press-button checked toggles class="style-default">A plain press button that toggles.</press-button>
 
 </div>
         <div class="col-xs-6 col-md-3">
-          <switch-button checked icon="fa-power-off" class="style-default" label="An active default button."></switch-button>
+          <press-button checked toggles icon-name="fa-power-off" class="style-default">A toggled press button.</press-button>
         </div>
         <div class="col-xs-6 col-md-3">
-          <switch-button icon="fa-wifi" class="style-default" led="blue" label="A wifi button with a blue led."></switch-button>
+          <press-button toggles icon-name="fa-wifi" class="style-default" led="blue">A wifi button with a blue led.</press-button>
         </div>
         <div class="col-xs-6 col-md-3">
-          <switch-button checked icon="fa-fire" class="style-default" led="red" label="A button with a red led."></switch-button>
+          <press-button checked toggles icon-name="fa-fire" class="style-default" led="red">A button with a red led.</press-button>
         </div>
       </div>
     </div>
