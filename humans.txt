@@ -4,11 +4,12 @@
 # TEAM
 
     Teo Maragakis - @teomaragakis - www.teomaragakis.com
+    Karl Tiedt - @ktiedt
     Dimitris Kyriazopoulos
 
 # THANKS
 
-    Karl Tiedt - @ktiedt
+    
 
 # TECHNOLOGY COLOPHON
 
