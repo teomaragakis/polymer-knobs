@@ -21,6 +21,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           margin: 0px auto;
           border-radius: 100%;
         }
+
+        --led-color: rgb(98, 217, 99);
+        --led-shadow-color: rgba(105, 216, 103, 0.8);
+        --led-off-color: #dadada;
+
+        --label-color: #b4b4b4;
+
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
@@ -84,7 +91,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         border: 1px solid #fafafa;
       }
       :host(.style-default) .hole {
-
         background-image: -webkit-linear-gradient(top, #ccc 0, #fff 100%);
         background-image: -o-linear-gradient(top, #ccc 0, #fff 100%);
         background-image: linear-gradient(to bottom, #ccc 0, #fff 100%);
@@ -107,7 +113,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         margin-top: 20px;
         text-transform: uppercase;
         font-size: 1.3em;
-        color: #b4b4b4;
+        color: var(--label-color);
         -moz-user-select: text;
         -webkit-user-select: text;
         -ms-user-select: text;
@@ -117,7 +123,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
         width: 100%;
         height: 100%;
-        color: #dadada;
+        color: var(--led-off-color);
 
         transition: color 0.4s ease-in,
           text-shadow 0.4s ease-in;
@@ -126,19 +132,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host([instant-on].style-default) i {
         transition: none;
       }
-      :host([pressed].style-default) i.green, :host([active].style-default) i.green, :host([always-lit].style-default) i.green {
-        color: rgb(98, 217, 99);
-        text-shadow: 0 0 15px rgba(105, 216, 103, 0.8);
+      :host([pressed].style-default) i, :host([active].style-default) i, :host([always-lit].style-default) i {
+        color: var(--led-color);
+        text-shadow: 0 0 15px var(--led-shadow-color);
       }
-      :host([pressed].style-default) i.blue, :host([active].style-default) i.blue, :host([always-lit].style-default) i.blue {
-        color: rgb(40,170,210);
-        text-shadow: 0 0 15px rgba(40,170,210, 0.8);
-      }
-      :host([pressed].style-default) i.red, :host([active].style-default) i.red, :host([always-lit].style-default) i.red {
-        color: #e12c2c;
-        text-shadow: 0 0 15px rgba(221, 39, 49, 0.8);
-      }
-
     </style>
   </template>
 </dom-module>

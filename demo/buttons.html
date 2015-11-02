@@ -30,6 +30,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style is="custom-style">
+    .blue {
+      --led-color: rgb(40,170,210);
+      --led-shadow-color: rgba(40,170,210, 0.8);
+    }
+
+    .red {
+      --led-color: #e12c2c;
+      --led-shadow-color: rgba(221, 39, 49, 0.8);
+    }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -39,13 +50,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <press-button class="style-default">A plain press button.</press-button>
         </div>
         <div class="col-xs-6 col-md-3">
-          <press-button class="style-default" icon-name="fa-battery-three-quarters" led="red">A press button with an icon.</press-button>
+          <press-button class="style-default red" icon-name="fa-battery-three-quarters">A press button with an icon.</press-button>
         </div>
         <div class="col-xs-6 col-md-3">
           <press-button class="style-default" instant-on icon-name="fa-bell">An instant-on press button (no led transition)</press-button>
         </div>
         <div class="col-xs-6 col-md-3">
-          <press-button class="style-default" always-lit icon-name="fa-play-circle-o" led="blue">A press button with an always-lit led icon.</press-button>
+          <press-button class="style-default blue" always-lit icon-name="fa-play-circle-o">A press button with an always-lit led icon.</press-button>
         </div>
       </div>
       <div class="row">
@@ -58,10 +69,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <press-button checked toggles icon-name="fa-power-off" class="style-default">A toggled press button.</press-button>
         </div>
         <div class="col-xs-6 col-md-3">
-          <press-button toggles icon-name="fa-wifi" class="style-default" led="blue">A wifi button with a blue led.</press-button>
+          <press-button toggles icon-name="fa-wifi" class="style-default blue">A wifi button with a blue led.</press-button>
         </div>
         <div class="col-xs-6 col-md-3">
-          <press-button checked toggles icon-name="fa-fire" class="style-default" led="red">A button with a red led.</press-button>
+          <press-button checked toggles icon-name="fa-fire" class="style-default red">A button with a red led.</press-button>
         </div>
       </div>
     </div>

@@ -23,15 +23,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       iconName: String,
       /* The element which will hold the icon */
       iconHolder: Object,
-      /* Sets the button's led color. Defaults to green. */
-      led: {
-        type: String,
-        value: "green"
-      }
     },
     /* Unites all the classes ✊ ☭ */
-    _computeIconClass: function(icon, led) {
-      return ['fa', icon, led].join(' ');
+    _computeIconClass: function(icon) {
+      return ['fa', icon].join(' ');
     },
     attached: function() {
       if (this.iconName) {
