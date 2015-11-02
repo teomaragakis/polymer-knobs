@@ -8,7 +8,9 @@
 
 Knob, switch and other web components, built with Polymer, and the seed-element. Leaving the rest of the README untouched for now.
 
-Hey you! Are you any good with Polymer? I need some help! Take a look at the tasks I have marked with [help-wanted](https://github.com/teomaragakis/polymer-knobs/labels/help%20wanted) and roll up your sleeves! ✊ For questions, comments or ideas join me on [Gitter](https://gitter.im/teomaragakis/polymer-knobs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
+## Contributing
+
+You can take a look at the tasks marked with [help-wanted](https://github.com/teomaragakis/polymer-knobs/labels/help%20wanted) and roll up your sleeves! ✊ For questions, comments or ideas join us on [Gitter](https://gitter.im/teomaragakis/polymer-knobs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
 
 ## Installation in your project
 You can use [Bower](http://bower.io/) to install polymer-knobs into your project:

@@ -45,10 +45,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       dxSum += e.detail.dx;
       this.setAngle(e.detail.dx);
     },
-    /* Takes a delta from an event and calls the methods it needs to call.  */
-    rotate: function(delta) {
-
-    },
     /* Limits the rotation within the given limits and rotates the movable part via CSS. */
     setAngle: function(rotation) {
       rotation = Math.min(Math.max(parseInt(rotation), this.maxAngle * -1), this.maxAngle);

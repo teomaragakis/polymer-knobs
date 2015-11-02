@@ -77,15 +77,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
   <script>
     /*
-      * A `<press-button>` is a button that doesn't switch state after released like a checkbox. While pressed, it has a `pressed` attribute.
+      * A `<press-button>` is a button that can either automatically release or toggle its active state like a checkbox.
       *
-      * Examples:
+      * * While pressed, it has a `pressed` attribute.
+      * * It can have a colored "led" icon. Just use the class of any font-awesome icon as the value of the `icon-name` attribute and use red, green or blue as the value of `led`.
+      * * The `always-lit` attribute keeps the led... always lit.
+      * * Normally there's a fade in/out effect when the led turns on/off. To override, use the `instant-on` attribute.
       *
-      *     <press-button class="style-default"></press-button>
+      * ## Automatic release
+      * The automatic release version of the `press-button` element
       *
-      *     <press-button led="blue" label="Some random button."></press-button>
+      *     <press-button class="style-default">A plain press button.</press-button>
       *
-      *     <press-button iconName="fa-power-off" label="Darn you Google"></press-button>
+      *     <press-button class="style-default" icon-name="fa-heart" led="red">A press button with an icon.</press-button>
+      *
+      *     <press-button class="style-default" instant-on icon-name="fa-bell">An instant-on press button (no led transition)</press-button>
+
+      *      <press-button class="style-default" always-lit icon-name="fa-play" led="blue">A press button with an always-lit led icon.</press-button>
+
+      * ## State toggle
+      * To have the buttton toggle its state, just add the `toggles` attribute.
+      *
+      *     <press-button checked toggles icon-name="fa-power-off" class="style-default">A toggled press button.</press-button>
+      *
+      *     <press-button toggles icon-name="fa-wifi" class="style-default" led="blue">A wifi button with a blue led.</press-button>
+      *
+      *     <press-button checked toggles icon-name="fa-fire" class="style-default" led="red">A button with a red led.</press-button>
+
       *
       *     @group Polymer Knobs
       *     @element press-button
@@ -93,7 +111,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       */
     Polymer({
       is: 'press-button',
-
+      properties: {
+        toggles: {
+          type: Boolean,
+          value: false,
+        }
+      },
       ready: function() {
         this.iconHolder = this.$.iconholder;
       },
