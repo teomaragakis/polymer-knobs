@@ -111,11 +111,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       */
     Polymer({
       is: 'press-button',
+      hostAttributes: {
+        role: 'checkbox',
+        'aria-checked': false,
+        tabindex: 0
+      },
       properties: {
         toggles: {
           type: Boolean,
           value: false,
         },
+        ariaActiveAttribute: {
+          type: String,
+          value: 'aria-checked'
+        }
       },
       ready: function() {
         this.iconHolder = this.$.iconholder;
