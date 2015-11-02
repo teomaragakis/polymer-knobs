@@ -85,7 +85,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       * * Normally there's a fade in/out effect when the led turns on/off. To override, use the `instant-on` attribute.
       *
       * ## Automatic release
-      * The automatic release version of the `press-button` element
+      * The automatic release version of the `press-button` element has a `pressed` attribute while the button is being held.
       *
       *     <press-button class="style-default">A plain press button.</press-button>
       *
@@ -96,7 +96,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       *      <press-button class="style-default" always-lit icon-name="fa-play" led="blue">A press button with an always-lit led icon.</press-button>
 
       * ## State toggle
-      * To have the buttton toggle its state, just add the `toggles` attribute.
+      * The state toggle version of the button acts as a checkbox. To make a button work like this, just add the `toggles` attribute.
       *
       *     <press-button checked toggles icon-name="fa-power-off" class="style-default">A toggled press button.</press-button>
       *
@@ -111,10 +111,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       */
     Polymer({
       is: 'press-button',
+      hostAttributes: {
+        role: 'checkbox',
+        'aria-checked': false,
+        tabindex: 0
+      },
       properties: {
         toggles: {
           type: Boolean,
           value: false,
+        },
+        ariaActiveAttribute: {
+          type: String,
+          value: 'aria-checked'
         }
       },
       ready: function() {
