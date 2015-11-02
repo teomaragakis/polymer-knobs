@@ -36,14 +36,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       e.preventDefault();
       var deltaSum = 0;
       deltaSum += e.deltaY;
-      this.setAngle(deltaSum);
+      this.debounce(
+        'set-angle',
+        (function() {
+          this.setAngle(deltaSum);
+        }).bind(this),
+        100
+      );
     },
     /* Gets the delta from drag (touch) events. Drag horizontally. */
     handleTrack: function(e) {
       e.preventDefault();
       var dxSum = 0;
       dxSum += e.detail.dx;
-      this.setAngle(e.detail.dx);
+      this.debounce(
+        'set-angle',
+        (function() {
+          this.setAngle(deltaSum);
+        }).bind(this),
+        100
+      );
     },
     /* Limits the rotation within the given limits and rotates the movable part via CSS. */
     setAngle: function(rotation) {

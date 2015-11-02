@@ -18,10 +18,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    */
 
   SquaredBehaviorNew = {
-    properties: {
-      /* The DOM object to be resized. */
-      victim: Object
-    },
     listeners: {
     'iron-resize': 'equalizeDimensions'
     },
@@ -30,8 +26,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Sets its height equal to its width.
      */
     equalizeDimensions: function() {
-      this.victim = this.$$('.round');
-      this.victim.style.height = this.victim.offsetWidth + 'px';
+      this.$.victim.style.height = this.$.victim.offsetWidth + 'px';
     },
     // Element Lifecycle
     ready: function() {
